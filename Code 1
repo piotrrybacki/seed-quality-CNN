@@ -1,0 +1,20 @@
+
+import os
+import pathlib
+import tensorflow as tf
+rapeseedsdir_path = pathlib.Path("rapeseeds")
+file_list = sorted([str(path) for path in rapeseedsdir_path.glob("*.jpg")])
+print(file_list)
+import matplotlib.pyplot as plt 	# image visualization using the Matplotlib library (Fig. 2)
+fig = plt.figure(figsize=(100, 50)) 	#define figure
+for i, file in enumerate(file_list):
+    rapeseeds_raw = tf.io.read_file(file)
+    img = tf.image.decode_image(rapeseeds_raw)
+    print("figsize: ", img.shape)
+    ax = fig.add_subplot(3, 2500, i+1)
+    ax.set_xticks([]); ax.set_yticks([])
+    ax.imshow(img)
+    ax.set_title(os.path.basename(file), size = 5))
+plt.tight_layout() 	#plt.savefig('rapeseeds.pdf')
+
+Code 1. The code that generates the list of names of the imaged rapeseed samples, visualizing and determining their size 
