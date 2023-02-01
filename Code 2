@@ -1,0 +1,98 @@
+
+import os, shutil
+import scipy as scipy
+import tf
+import total as total
+from keras.utils.version_utils import training
+original_dataset_dir = '/rapeseeds/atora-vs-californium-vs-graf/train/train'
+base_dir = './atora_vs_californium_vs_graf_small'
+os.mkdir(base_dir)
+train_dir = os.path.join(base_dir, 'train') #Directories for the training, validation, and test splits
+os.mkdir(train_dir)
+validation_dir = os.path.join(base_dir, 'validation')
+os.mkdir(validation_dir)
+test_dir = os.path.join(base_dir, 'test')
+os.mkdir(test_dir)
+train_atora_dir = os.path.join(train_dir, 'atora') #Directory with training atora pictures 
+os.mkdir(train_atora_dir)
+train_californium_dir = os.path.join(train_dir, 'californium') #Directory with training californium pictures
+os.mkdir(train_californium_dir)
+train_graf_dir = os.path.join(train_dir, 'graf') #Directory with training graf pictures
+os.mkdir(train_graf_dir)#Directory with validation atora pictures)
+validation_atora_dir = os.path.join(validation_dir, 'atora')
+os.mkdir(validation_atora_dir)
+validation_californium_dir = os.path.join(validation_dir, 'californium') #Directory with validation californium pictures
+os.mkdir(validation_californium_dir)
+validation_graf_dir = os.path.join(validation_dir, 'graf') #Directory with validation graf pictures
+os.mkdir(validation_graf_dir)
+test_atora_dir = os.path.join(test_dir, 'atora') #Directory with test atora pictures
+os.mkdir(test_atora_dir)
+test_californium_dir = os.path.join(test_dir, 'californium') #Directory with test californium pictures
+os.mkdir(test_californium_dir)
+test_graf_dir = os.path.join(test_dir, 'graf') #Directory with test graf pictures
+os.mkdir(test_graf_dir)
+fnames = ['atora.{}.jpg'.format(i) for i in range(“a”)] #Copies the first (“a”) atora images to train_atora_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(train_atora_dir, fname)
+    shutil.copyfile(src, dst)
+fnames = ['atora.{}.jpg'.format(i) for i in range(“a”, “b”)] #Copies the next (“b”-“a”) atora images to validation_atora_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(validation_atora_dir, fname)
+    shutil.copyfile(src, dst)
+fnames = ['atora.{}.jpg'.format(i) for i in range(“b” “c”)] #Copies the next (“c”-“b”) atora images to test_atora_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(test_atora_dir, fname)
+    shutil.copyfile(src, dst)
+fnames = ['californium.{}.jpg'.format(i) for i in range(“a”)] #Copies the first (“a”) californium images to train_californium_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(train_californium_dir, fname)
+    shutil.copyfile(src, dst)
+fnames = ['californium.{}.jpg'.format(i) for i in range(“b”-“a”)] #Copies the next (“b”-“a”) californium images to validation_californium_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(validation_californium_dir, fname)
+    shutil.copyfile(src, dst)
+fnames = ['californium.{}.jpg'.format(i) for i in range(“c”-“b”)] #Copies the next (“c”-“b”) californium images to test_californium_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(test_californium_dir, fname)
+    shutil.copyfile(src, dst)
+fnames = ['graf.{}.jpg'.format(i) for i in range(“a”)] #Copies the first (“a”) graf images to train_graf_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(train_graf_dir, fname)
+    shutil.copyfile(src, dst)
+fnames = ['graf.{}.jpg'.format(i) for i in range(“b”-“a”)] #Copies the next (“b”-“a”) graf images to validation_graf_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(validation_graf_dir, fname)
+    shutil.copyfile(src, dst)
+fnames = ['graf.{}.jpg'.format(i) for i in range(“c”-“b”)] #Copies the next (“c”-“b”) graf images to test_graf_dir
+for fname in fnames:
+    src = os.path.join(original_dataset_dir, fname)
+    dst = os.path.join(test_graf_dir, fname)
+    shutil.copyfile(src, dst)
+print('total training atora images:', len(os.listdir(train_atora_dir)))
+total_training_cat_images: (“a”)
+print('total training californium images:', len(os.listdir(train_californium_dir)))
+total_training_dog_images: (“a”)
+print('total training graf images:', len(os.listdir(train_graf_dir)))
+total_training_dog_images: (“a”)
+print('total validation atora images:', len(os.listdir(validation_atora_dir)))
+total_validation_atora_images: (“b”-“a”)
+print('total validation californium images:', len(os.listdir(validation_californium_dir)))
+total_validation_californium_images: (“b”-“a”)
+print('total validation graf images:', len(os.listdir(validation_graf_dir)))
+total_validation_graf_images: (“b”-“a”)
+print('total test atora images:', len(os.listdir(test_atora_dir)))
+total_test_atora_images: (“c”-“b”)
+print('total test californium images:', len(os.listdir(test_californium_dir)))
+total_test_californium_images: (“c”-“b”)
+print('total test graf images:', len(os.listdir(test_graf_dir)))
+total_test_graf_images: (“c”-“b”)
+
+Code 2. Code for automatic copying of images from the source directory to the learning, validation and test directories  
