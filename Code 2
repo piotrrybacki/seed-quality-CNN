@@ -96,3 +96,4 @@ print('total test graf images:', len(os.listdir(test_graf_dir)))
 total_test_graf_images: (“c”-“b”)
 
 Code 2. Code for automatic copying of images from the source directory to the learning, validation and test directories  
+
