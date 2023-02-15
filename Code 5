@@ -17,3 +17,6 @@ transform=ax.transAxes)
 plt.show() #plt.savefig('rysunki/15_13.png', dpi=300)
 
 Code 5. Programming code that searches for the image with the highest probability of belonging and assigns the corresponding label  
+
+
+
